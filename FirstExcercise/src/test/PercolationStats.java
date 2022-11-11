@@ -59,13 +59,13 @@ public class PercolationStats {
         T = sc.nextInt();
         System.out.println("请选择UF算法(QF-1,QU-2,WQU-3):");
         choice = sc.nextInt();
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         PercolationStats percolationStats = new PercolationStats(n, T, choice);
-        long totalTime = System.nanoTime() - startTime;
+        long totalTime = System.currentTimeMillis() - startTime;
         System.out.println("渗透阈值的平均值:" + percolationStats.mean()); 
         System.out.println("渗透阈值的样本标准差:" + percolationStats.stddev());
         System.out.println("95%置信区间下限:" + percolationStats.confidenceLo());
         System.out.println("95%置信区间上限:" + percolationStats.confidenceHi());
-        System.out.println("总花费时间为:" + totalTime * 1.0 / 1000000 + "ms");
+        System.out.println("总花费时间为:" + totalTime + "ms");
     }
 }
