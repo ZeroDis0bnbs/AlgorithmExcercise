@@ -1,8 +1,6 @@
 package test;
 
-import UnionFind.QuickFind;
-import UnionFind.QuickUnion;
-import UnionFind.WeightedQuickUnion;
+import UnionFind.*;
 
 public class Percolation {
     private int N;

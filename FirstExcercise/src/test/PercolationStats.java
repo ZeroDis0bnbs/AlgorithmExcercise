@@ -1,8 +1,8 @@
 package test;
 
 import java.util.Scanner;
+import java.util.Random;
 import edu.princeton.cs.algs4.StdStats;
-import edu.princeton.cs.algs4.StdRandom;
 
 public class PercolationStats {
     private int sideLength;
@@ -15,11 +15,12 @@ public class PercolationStats {
         
         sideLength = N;
         pr = new double[T];
+        Random r = new Random();
         for (int i = 0; i < T; i++) {
             Percolation percolation = new Percolation(sideLength, choice);
             int cnt = 0;
             while (!percolation.percolates()){
-                int row = StdRandom.uniform(sideLength) + 1, col = StdRandom.uniform(sideLength) + 1;
+                int row = r.nextInt(sideLength) + 1, col = r.nextInt(sideLength) + 1;
                 if (!percolation.isOpen(row, col)) {
                     percolation.open(row, col);
                     cnt++;
