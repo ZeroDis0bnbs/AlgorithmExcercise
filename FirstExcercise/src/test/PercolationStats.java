@@ -54,15 +54,17 @@ public class PercolationStats {
     public static void main(String[] args) {
         int n, T, choice;
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入边长:");
+        System.out.print("请输入边长:");
         n = sc.nextInt();
-        System.out.println("请输入实验次数:");
+        System.out.print("请输入实验次数:");
         T = sc.nextInt();
-        System.out.println("请选择UF算法(QF-1,QU-2,WQU-3):");
+        System.out.print("请选择UF算法(QF-1,QU-2,WQU-3):");
         choice = sc.nextInt();
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         PercolationStats percolationStats = new PercolationStats(n, T, choice);
-        long totalTime = System.currentTimeMillis() - startTime;
+        long endTime = System.nanoTime();
+        double totalTime = (endTime - startTime) * 1.0 / 1000000;
+        System.out.println("------------------------------------------------------");
         System.out.println("渗透阈值的平均值:" + percolationStats.mean()); 
         System.out.println("渗透阈值的样本标准差:" + percolationStats.stddev());
         System.out.println("95%置信区间下限:" + percolationStats.confidenceLo());
