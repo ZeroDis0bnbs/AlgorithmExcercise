@@ -34,8 +34,8 @@ public class DijkstraSPImproment3 extends DijkstraSPImproment2{
     protected void relax(EdgeWeightedGraph G, int v) {
         for (Edge e : G.adj(v)) {
             int w = e.other(v);
-            if (distTo[w] > distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(w, d)) {
-                distTo[w] = distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(w, d);
+            if (distTo[w] - 0.000001 > distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(v, d)) {
+                distTo[w] = distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(v, d);
                 edgeTo[w] = e;
                 if (mulPQ.contains(w))
                     mulPQ.changeKey(w, distTo[w]);

@@ -7,6 +7,7 @@ import test.Maps;
 
 public class DijkstraSPImproment2 extends DijkstraSPImproment1 {
     public DijkstraSPImproment2() {
+        super();
     }
 
     public DijkstraSPImproment2(EdgeWeightedGraph G, int s, int d) {
@@ -17,8 +18,8 @@ public class DijkstraSPImproment2 extends DijkstraSPImproment1 {
     protected void relax(EdgeWeightedGraph G, int v) {
         for (Edge e : G.adj(v)) {
             int w = e.other(v);
-            if (distTo[w] > distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(w, d)) {
-                distTo[w] = distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(w, d);
+            if (distTo[w] - 0.000001 > distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(v, d)) {
+                distTo[w] = distTo[v] + e.weight() + Maps.distance(w, d) - Maps.distance(v, d);
                 edgeTo[w] = e;
                 if (pq.contains(w))
                     pq.changeKey(w, distTo[w]);

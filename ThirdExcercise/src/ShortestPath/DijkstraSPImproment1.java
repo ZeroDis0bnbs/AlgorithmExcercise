@@ -7,6 +7,7 @@ import edu.princeton.cs.algs4.IndexMinPQ;
 public class DijkstraSPImproment1 extends DijkstraShortestPath{
      protected int d;
     public DijkstraSPImproment1() {
+        super();
     }
 
     public DijkstraSPImproment1(EdgeWeightedGraph G, int s, int d) {

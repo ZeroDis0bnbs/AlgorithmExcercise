@@ -1,9 +1,12 @@
 package test;
 
+import ShortestPath.DijkstraSPImproment1;
 import ShortestPath.DijkstraSPImproment3;
 import ShortestPath.DijkstraShortestPath;
 import edu.princeton.cs.algs4.Edge;
 import edu.princeton.cs.algs4.EdgeWeightedGraph;
+import edu.princeton.cs.algs4.StdDraw;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -65,13 +68,5 @@ public class Maps {
     public EdgeWeightedGraph getGraph() {
         return G;
     }
-    public static void main(String[] args) {
-        Maps maps = new Maps();
-        DijkstraShortestPath djSP = new DijkstraSPImproment3(maps.getGraph(), 100, 500);
-        Iterator<Edge> path = djSP.pathTo().iterator();
-        while (path.hasNext()) {
-            System.out.println(path.next());
-        }
 
-    }
 }
